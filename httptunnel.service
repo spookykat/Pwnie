@@ -1,0 +1,12 @@
+[Unit]
+Description=Starts httptunnel
+After=network.target
+
+[Service]
+ExecStart=nohup /usr/bin/htc --no-daemon -F 1234 $SERVERIP:8080 -k 10
+User=test
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

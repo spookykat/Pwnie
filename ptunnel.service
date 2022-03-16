@@ -1,0 +1,11 @@
+[Unit]
+Description=ptunnel
+After=network.target
+
+[Service]
+ExecStart=ptunnel-ng -p $SERVERIP -l 8888 -R22
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

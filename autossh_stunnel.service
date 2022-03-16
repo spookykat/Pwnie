@@ -1,0 +1,13 @@
+[Unit]
+Description=AutoSSH tunnel for stunnel port 443
+After=network.target
+Requires=stunnel.service
+
+[Service]
+Enviroment="AUTOSSH_GATETIME=0"
+ExecStart=/usr/bin/autossh -p 443 -M 20000 -N -R 10022:localhost:22 root@localhost
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
