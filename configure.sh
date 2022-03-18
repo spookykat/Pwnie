@@ -5,10 +5,8 @@ OOBDOMAIN=$2
 export OOBDOMAIN
 shopt -s extglob
 
-envsubst < "stunnel.conf" > /etc/stunnel/stunnel.conf
-for i in !(configure).sh; do
+
+for i in !(configure).sh *.conf; do
     [ -f "$i" ] || break
-    envsubst < $i > temp && mv temp $i
-    chmod +x $i
-    ./$i &
-done                  
+    envsubst < $i > $i.temp && mv $i.temp $i
+done
