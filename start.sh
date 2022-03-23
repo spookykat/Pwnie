@@ -1,4 +1,5 @@
 #! /bin/bash
+/usr/bin/sshd
 /root/scripts/autossh_httptunnel.sh &
 /root/scripts/autossh_ptunnel.sh &
 /root/scripts/autossh_stunnel.sh &
