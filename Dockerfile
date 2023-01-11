@@ -1,4 +1,6 @@
 FROM spookykat/archpentest
+
+RUN pacman -Sy && pacman -S archlinux-keyring --noconfirm
 RUN pacman -Syu --noconfirm
 RUN mkdir -p /root/scripts
 RUN mkdir -p /root/.ssh
